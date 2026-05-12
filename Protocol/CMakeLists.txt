@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.15)
+project(Protocol LANGUAGES C)
+
+set(CMAKE_INSTALL_RPATH "$ORIGIN")
+
+set(INCLUDE_DIR include)
+
+file(GLOB_RECURSE PROJECT_HEADERS ${INCLUDE_DIR}/*.h)
+
+add_library(${PROJECT_NAME} INTERFACE)
+
+target_include_directories(${PROJECT_NAME} INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/${INCLUDE_DIR}
+)
+
+install(TARGETS ${PROJECT_NAME} DESTINATION .)

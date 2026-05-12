@@ -1,0 +1,31 @@
+{
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.configureSettings": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+    },
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/Client/include",
+        "${workspaceFolder}/Server/include",
+        "/usr/include/x86_64-linux-gnu/qt5",
+        "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+        "/usr/include/x86_64-linux-gnu/qt5/QtGui",
+        "/usr/include/x86_64-linux-gnu/qt5/QtCore",
+        "/usr/include/x86_64-linux-gnu/qt5/QtNetwork",
+        "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
+    ],
+    "C_Cpp.default.defines": [
+        "QT_CORE_LIB",
+        "QT_GUI_LIB",
+        "QT_NETWORK_LIB",
+        "QT_WIDGETS_LIB"
+    ],
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+    "files.associations": {
+        "*.h": "c",
+        "*.hpp": "cpp"
+    }
+}

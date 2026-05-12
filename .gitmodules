@@ -1,0 +1,3 @@
+[submodule "external/qcustomplot/qcustomplot"]
+	path = external/qcustomplot/qcustomplot
+	url = https://github.com/zohannn/qcustomplot.git
