@@ -23,8 +23,13 @@ namespace alt
 
     void Server::stop()
     {
+        if(!m_socket)
+            return;
 
+        disconnect(m_socket, &QUdpSocket::readyRead, this, &Server::readyToReadCallback);
 
+        if(m_socket->state() != QAbstractSocket::UnconnectedState)
+            m_socket->close();
     }
 
     void Server::readyToReadCallback()

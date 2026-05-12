@@ -4,6 +4,7 @@
 
 #include <QCheckBox>
 #include <QGridLayout>
+#include <QSizePolicy>
 #include <QVBoxLayout>
 #include <QPen>
 #include <QtGlobal>
@@ -25,15 +26,17 @@ namespace alt
         m_plot->legend->setVisible(true);
 
         auto* layout = new QVBoxLayout(this);
-        layout->setContentsMargins(6, 6, 6, 6);
+        layout->setContentsMargins(6, 2, 6, 6);
+        layout->setSpacing(2);
 
         m_controlsLayout = new QGridLayout();
         m_controlsLayout->setContentsMargins(0, 0, 0, 0);
-        m_controlsLayout->setHorizontalSpacing(12);
-        m_controlsLayout->setVerticalSpacing(2);
+        m_controlsLayout->setHorizontalSpacing(8);
+        m_controlsLayout->setVerticalSpacing(0);
 
         auto* totalToggle = new QCheckBox("Total CPU", this);
         totalToggle->setChecked(true);
+        totalToggle->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         connect(totalToggle, &QCheckBox::toggled, this, [this](bool checked) {
             setGraphVisible(0, checked);
         });
@@ -42,7 +45,7 @@ namespace alt
         m_controlsLayout->addWidget(totalToggle, 0, 0);
 
         layout->addLayout(m_controlsLayout);
-        layout->addWidget(m_plot);
+        layout->addWidget(m_plot, 1);
     }
 
     void CPUGraph::setGraphVisible(int graphIndex, bool visible)
@@ -76,6 +79,7 @@ namespace alt
 
             auto* toggle = new QCheckBox(QString("CPU %1").arg(m_coreGraphCount), this);
             toggle->setChecked(false);
+            toggle->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
             m_plot->graph(graphIndex)->setVisible(false);
 

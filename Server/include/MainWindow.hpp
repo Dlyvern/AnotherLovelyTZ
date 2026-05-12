@@ -6,6 +6,9 @@
 #include "CPUGraph.hpp"
 #include "Server.hpp"
 
+class QLabel;
+class QTimer;
+
 namespace alt
 {
     class MainWindow : public QMainWindow
@@ -17,9 +20,14 @@ namespace alt
     private:
         Server* m_server{nullptr};
         CPUGraph* m_cpuGraph{nullptr};
+        QLabel* m_statusLabel{nullptr};
+        QTimer* m_clientTimeoutTimer{nullptr};
+
+        void setStatus(const QString& text, const QString& color);
 
     private slots:
         void onNewCPUDataReceived(CPULoadProtocol data);
+        void onClientTimeout();
     };
 } //namespace alt
 
